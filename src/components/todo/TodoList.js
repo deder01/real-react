@@ -2,10 +2,16 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {TodoItem} from './TodoItem'
 
-export const TodoList = ({todos}) => (
+export const TodoList = ({todos, handleToggle}) => (
   <div className="Todo-list">
     <ul>
-      {todos.map(todo => <TodoItem key={todo.id} {...todo}/>)}
+      {todos.map(todo => 
+      <TodoItem 
+        key={todo.id} 
+        handleToggle={handleToggle}
+        {...todo}
+      />
+      )}
     </ul>
   </div>
 )
