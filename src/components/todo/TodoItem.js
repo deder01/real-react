@@ -2,10 +2,16 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {partial, pipe} from '../../lib/utils'
 
-export const TodoItem = ({id, isComplete, handleToggle, name}) => {
+export const TodoItem = ({id, isComplete, handleToggle, handleRemove, name}) => {
   const toggleHandler = partial(handleToggle, id)
+  const removeHandler = partial(handleRemove, id)
   return (
     <li>
+      <span className='delete-item'><a  
+        href="#" 
+        onClick={removeHandler}>
+        x
+      </a></span>
       <input 
         type="checkbox" 
         onChange={toggleHandler}
